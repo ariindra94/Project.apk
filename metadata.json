@@ -1,0 +1,6 @@
+{
+  "name": "ESP32 Dash",
+  "description": "Full-screen digital motorcycle dashboard reading live JSON data from ESP32 via USB OTG with tachometer, speedometer, indicators, and simulation mode.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
