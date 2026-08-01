@@ -32,12 +32,12 @@ class RpmGauge extends StatelessWidget {
           ),
           labelFormat: '{value}',
           onLabelCreated: (AxisLabelCreatedArgs args) {
-            int val = int.parse(args.text) ~/ 1000;
+            int val = (double.tryParse(args.text) ?? 0) ~/ 1000;
             args.text = '$val';
           },
           axisLabelStyle: const GaugeTextStyle(
             color: Colors.white,
-            fontSize: 14,
+            fontSize: 12,
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
           ),
@@ -80,7 +80,7 @@ class RpmGauge extends StatelessWidget {
                         '$speed',
                         style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 65,
+                          fontSize: 55,
                           fontWeight: FontWeight.w900,
                           fontStyle: FontStyle.italic,
                           letterSpacing: -2,
@@ -91,7 +91,7 @@ class RpmGauge extends StatelessWidget {
                         'km/h',
                         style: TextStyle(
                           color: Colors.white70,
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic,
                         ),
@@ -112,7 +112,7 @@ class RpmGauge extends StatelessWidget {
                     gear == 0 ? 'N' : '$gear',
                     style: TextStyle(
                       color: gear == 0 ? Colors.greenAccent : const Color(0xFF29B6F6),
-                      fontSize: 30,
+                      fontSize: 26,
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.italic,
                     ),
