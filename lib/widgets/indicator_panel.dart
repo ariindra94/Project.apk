@@ -16,7 +16,7 @@ class IndicatorPanel extends StatelessWidget {
         const SizedBox(height: 6),
         _buildNeutralItem("N", "NEUTRAL", data.neutral),
         const SizedBox(height: 6),
-        _buildItem(Icons.no_crash_outlined, "ABS", data.abs, Colors.amberAccent),
+        _buildItem(Icons.warning_amber_rounded, "ABS", data.abs, Colors.amberAccent),
         const SizedBox(height: 6),
         _buildItem(Icons.oil_barrel, "OIL", data.oil, Colors.redAccent),
         const SizedBox(height: 6),
@@ -28,7 +28,7 @@ class IndicatorPanel extends StatelessWidget {
   Widget _buildItem(IconData icon, String label, bool isActive, Color activeColor) {
     return Row(
       children: [
-        Icon(icon, color: isActive ? activeColor : Colors.white24, size: 18),
+        Icon(icon, color: isActive ? activeColor : Colors.white24, size: 16),
         const SizedBox(width: 8),
         Text(
           label,
@@ -46,14 +46,14 @@ class IndicatorPanel extends StatelessWidget {
   Widget _buildNeutralItem(String text, String label, bool isActive) {
     return Row(
       children: [
-        Container(
-          width: 18,
-          alignment: Alignment.center,
+        SizedBox(
+          width: 16,
           child: Text(
             text,
+            textAlign: TextAlign.center,
             style: TextStyle(
               color: isActive ? Colors.greenAccent : Colors.white24,
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
           ),
