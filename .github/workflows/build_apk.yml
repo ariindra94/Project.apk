@@ -2,34 +2,45 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main, master ]
-  workflow_dispatch:
+    branches:
+      - main
+      - master
+  workflow_dispatch: # Agar bisa memicu build manual dari tombol GitHub
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      # 1. Checkout kode repositori
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Java (JDK 17)
+      # 2. Setup Java Development Kit (JDK 17)
+      - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
+          distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+      # 3. Setup Flutter SDK
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          gradle-version: 8.5
+          channel: 'stable'
+          cache: true
 
+      # 4. Ambil semua dependensi pubspec.yaml
+      - name: Install Dependencies
+        run: flutter pub get
+
+      # 5. Build Release APK
       - name: Build APK
-        run: gradle assembleDebug -x checkDebugAarMetadata
-        working-directory: android
+        run: flutter build apk --release
 
+      # 6. Upload file APK ke GitHub Artifacts agar bisa diunduh
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          name: ESP32-Dashboard-APK
+          path: build/app/outputs/flutter-apk/app-release.apk
