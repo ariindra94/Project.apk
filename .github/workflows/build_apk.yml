@@ -23,6 +23,11 @@ jobs:
         with:
           channel: 'stable'
 
+      # Langkah Kunci: Generate folder android/ & kerangka proyek jika belum ada
+      - name: Repair and Recreate Project Structure
+        run: |
+          flutter create . --platforms=android --org=com.esp32.dashboard
+
       - name: Get Dependencies
         run: flutter pub get
 
