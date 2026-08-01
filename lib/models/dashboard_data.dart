@@ -14,6 +14,7 @@ class DashboardData {
   final bool abs;
   final bool oil;
   final bool engine;
+  final String clock;
 
   DashboardData({
     required this.speed,
@@ -31,6 +32,7 @@ class DashboardData {
     required this.abs,
     required this.oil,
     required this.engine,
+    required this.clock,
   });
 
   factory DashboardData.fromJson(Map<String, dynamic> json) {
@@ -50,14 +52,28 @@ class DashboardData {
       abs: json['abs'] ?? false,
       oil: json['oil'] ?? false,
       engine: json['engine'] ?? false,
+      clock: json['clock'] ?? "10:25:30",
     );
   }
 
   factory DashboardData.initial() {
     return DashboardData(
-      speed: 0, rpm: 0, gear: 0, temp: 0, fuel: 0.0, volt: 0.0,
-      trip: 0.0, odo: 0, leftIndicator: false, rightIndicator: false,
-      highbeam: false, neutral: true, abs: false, oil: false, engine: false,
+      speed: 135,
+      rpm: 8500,
+      gear: 6,
+      temp: 28,
+      fuel: 7.6,
+      volt: 12.8,
+      trip: 235.6,
+      odo: 12035,
+      leftIndicator: true,
+      rightIndicator: true,
+      highbeam: true,
+      neutral: true,
+      abs: true,
+      oil: true,
+      engine: true,
+      clock: "10:25:30",
     );
   }
 }
