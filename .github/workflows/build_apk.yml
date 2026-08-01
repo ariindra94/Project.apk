@@ -23,10 +23,7 @@ jobs:
         with:
           channel: 'stable'
 
-      # PERBAIKAN: Menggunakan --overwrite (bukan --force)
-      - name: Repair and Recreate Project Structure
-        run: |
-          flutter create . --overwrite --platforms=android --org=com.esp32.dashboard
+      # Langkah flutter create dialihkan/dihapus agar tidak menimpa lib/main.dart Anda lagi
 
       - name: Get Dependencies
         run: flutter pub get
