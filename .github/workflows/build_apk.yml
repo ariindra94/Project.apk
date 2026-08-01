@@ -24,10 +24,10 @@ jobs:
         with:
           gradle-version: 8.5
 
-      # Abaikan checkMetadata yang sering membuat rintangan dan langsung eksekusi perakitan APK
       - name: Build APK
         run: |
-          gradle assembleDebug -x checkDebugAarMetadata --continue
+          chmod +x gradlew
+          ./gradlew assembleDebug -x checkDebugAarMetadata --no-daemon
         working-directory: android
 
       - name: Upload APK Artifact
