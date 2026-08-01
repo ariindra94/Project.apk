@@ -1,6 +1,7 @@
 name: esp32_dashboard
-description: "Aplikasi Dashboard Motor ESP32 via USB Serial"
+description: "A new Flutter project."
 publish_to: 'none'
+
 version: 1.0.0+1
 
 environment:
@@ -9,9 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  cupertino_icons: ^1.0.8
   usb_serial: ^0.5.2
-  syncfusion_flutter_gauges: ^24.2.7
-  cupertino_icons: ^1.0.6
+  syncfusion_flutter_gauges: ^24.2.9
 
 dev_dependencies:
   flutter_test:
