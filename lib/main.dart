@@ -13,7 +13,9 @@ class DashboardApp extends StatelessWidget {
     return MaterialApp(
       title: 'ESP32 Dashboard',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.black,
+      ),
       home: const DashboardScreen(),
     );
   }
