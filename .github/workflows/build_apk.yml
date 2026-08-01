@@ -23,6 +23,7 @@ jobs:
         uses: gradle/gradle-build-action@v3
         with:
           build-root-directory: android
+          gradle-version: 8.5
           arguments: assembleDebug --no-configuration-cache
 
       - name: Upload APK Artifact
