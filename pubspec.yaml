@@ -1,5 +1,5 @@
-name: aplikasi_speedometer
-description: Aplikasi Flutter buatan Gemini AI
+name: esp32_dashboard
+description: "Aplikasi Dashboard Motor ESP32 via USB Serial"
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,7 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  usb_serial: ^0.5.2
+  syncfusion_flutter_gauges: ^24.2.7
   cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
 
 flutter:
   uses-material-design: true
