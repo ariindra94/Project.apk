@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FuelGauge extends StatelessWidget {
-  final double fuelPercent; // Skala 0.0 - 100.0 %
+  final double fuelPercent;
 
   const FuelGauge({Key? key, required this.fuelPercent}) : super(key: key);
 
@@ -16,9 +16,9 @@ class FuelGauge extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
             Text("F", style: TextStyle(color: Colors.white70, fontSize: 10, fontWeight: FontWeight.bold)),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             Icon(Icons.local_gas_station, color: Colors.white30, size: 14),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             Text("E", style: TextStyle(color: Colors.redAccent, fontSize: 10, fontWeight: FontWeight.bold)),
           ],
         ),
@@ -38,8 +38,8 @@ class FuelGauge extends StatelessWidget {
 
               return Container(
                 margin: const EdgeInsets.symmetric(vertical: 1.5),
-                width: 22,
-                height: 10,
+                width: 20,
+                height: 8,
                 decoration: BoxDecoration(
                   color: isActive ? barColor : Colors.white10,
                   borderRadius: BorderRadius.circular(1),
