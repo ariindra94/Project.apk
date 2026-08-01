@@ -23,11 +23,18 @@ jobs:
         with:
           channel: 'stable'
 
-      # Trik: Perbarui struktur folder android tanpa menyentuh folder lib/
-      - name: Re-generate Android Project Structure
+      # Step 1: Regenerate folder Android
+      - name: Re-generate Android Project
         run: |
           rm -rf android
           flutter create . --platforms=android --org=com.esp32.dashboard
+
+      # Step 2: Matikan pembatasan AGP 9 agar kompatibel dengan library usb_serial
+      - name: Fix Gradle AGP Compatibility
+        run: |
+          echo "android.experimental.artifactory.auto=false" >> android/gradle.properties
+          echo "android.suppressUnsupportedCompileSdk=8,9,10,34,35" >> android/gradle.properties
+          echo "android.defaults.buildfeatures.buildconfig=true" >> android/gradle.properties
 
       - name: Get Dependencies
         run: flutter pub get
