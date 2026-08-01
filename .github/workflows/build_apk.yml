@@ -18,23 +18,18 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      # Kunci ke versi Flutter Stable yang paling kompatibel (3.19.6)
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.19.6'
           channel: 'stable'
 
-      # Step 1: Regenerate folder Android
+      # Re-generate folder android dengan template versi stabil
       - name: Re-generate Android Project
         run: |
           rm -rf android
           flutter create . --platforms=android --org=com.esp32.dashboard
-
-      # Step 2: Matikan pembatasan AGP 9 agar kompatibel dengan library usb_serial
-      - name: Fix Gradle AGP Compatibility
-        run: |
-          echo "android.experimental.artifactory.auto=false" >> android/gradle.properties
-          echo "android.suppressUnsupportedCompileSdk=8,9,10,34,35" >> android/gradle.properties
-          echo "android.defaults.buildfeatures.buildconfig=true" >> android/gradle.properties
 
       - name: Get Dependencies
         run: flutter pub get
