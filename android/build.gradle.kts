@@ -1,9 +1,9 @@
-// File root build.gradle dibuat bersih untuk Gradle 8+
+// File root build.gradle.kts
 plugins {
-    id 'com.android.application' apply false
-    id 'org.jetbrains.kotlin.android' apply false
+    id("com.android.application") version "8.1.1" apply false
+    id("org.jetbrains.kotlin.android") version "1.9.0" apply false
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+tasks.register<Delete>("clean") {
+    delete(rootProject.layout.buildDirectory)
 }
