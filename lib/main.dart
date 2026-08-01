@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dashboard.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const DashboardApp());
 }
 
@@ -14,7 +15,7 @@ class DashboardApp extends StatelessWidget {
       title: 'ESP32 Dashboard',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: const Color(0xFF0A0D12),
       ),
       home: const DashboardScreen(),
     );
