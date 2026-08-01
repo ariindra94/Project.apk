@@ -52,7 +52,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Kiri: Volt & Temp
                       Row(
                         children: [
                           _buildHeaderItem("${data.volt} v", "VOLT", Icons.battery_charging_full, Colors.greenAccent),
@@ -60,7 +59,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           _buildHeaderItem("${data.temp} °C", "TEMP", Icons.thermostat, Colors.blueAccent),
                         ],
                       ),
-                      // Tengah: Jam Digital
                       Text(
                         data.clock,
                         style: const TextStyle(
@@ -70,7 +68,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           letterSpacing: 1,
                         ),
                       ),
-                      // Kanan: Fuel & ODO
                       Row(
                         children: [
                           _buildHeaderItem("${data.fuel} L", "FUEL", Icons.local_gas_station, Colors.amberAccent),
@@ -87,7 +84,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Expanded(
                     child: Row(
                       children: [
-                        // Kiri: Sein Kiri & Panel Indikator
+                        // Kiri
                         Expanded(
                           flex: 2,
                           child: Column(
@@ -96,7 +93,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               Icon(
                                 Icons.arrow_back,
                                 color: data.leftIndicator ? Colors.greenAccent : Colors.white12,
-                                size: 26,
+                                size: 24,
                               ),
                               const Spacer(),
                               IndicatorPanel(data: data),
@@ -105,7 +102,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                         ),
 
-                        // Tengah: Spedometer & RPM Gauge
+                        // Tengah (Gauge)
                         Expanded(
                           flex: 5,
                           child: RpmGauge(
@@ -115,7 +112,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                         ),
 
-                        // Kanan: Sein Kanan, Fuel Gauge & Trip
+                        // Kanan
                         Expanded(
                           flex: 2,
                           child: Column(
@@ -124,7 +121,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               Icon(
                                 Icons.arrow_forward,
                                 color: data.rightIndicator ? Colors.greenAccent : Colors.white12,
-                                size: 26,
+                                size: 24,
                               ),
                               const Spacer(),
                               FuelGauge(fuelPercent: (data.fuel / 10.0) * 100),
@@ -133,7 +130,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   const Text("TRIP A", style: TextStyle(color: Colors.grey, fontSize: 9, fontWeight: FontWeight.bold)),
-                                  Text("${data.trip} km", style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                                  Text("${data.trip} km", style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
                                 ],
                               ),
                               const Spacer(),
@@ -144,7 +141,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   ),
 
-                  // --- FOOTER BAWAH (RIDING MODES) ---
+                  // --- FOOTER BAWAH ---
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -169,10 +166,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
       children: [
         Row(
           children: [
-            Text(val, style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+            Text(val, style: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold)),
             if (icon != null) ...[
               const SizedBox(width: 4),
-              Icon(icon, color: color, size: 14),
+              Icon(icon, color: color, size: 12),
             ]
           ],
         ),
