@@ -23,8 +23,6 @@ jobs:
         with:
           channel: 'stable'
 
-      # Langkah flutter create dialihkan/dihapus agar tidak menimpa lib/main.dart Anda lagi
-
       - name: Get Dependencies
         run: flutter pub get
 
