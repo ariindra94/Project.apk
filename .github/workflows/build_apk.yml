@@ -21,17 +21,23 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0' # Versi Flutter stabil
+          flutter-version: '3.19.0'
           channel: 'stable'
 
       - name: Get dependencies
+        # Jika pubspec.yaml ada di folder android, jalankan dari sana
+        # Jika pubspec.yaml ada di luar, hapus baris working-directory bawah ini
+        working-directory: android
         run: flutter pub get
 
       - name: Build APK
-        run: flutter build apk --debug
+        working-directory: android
+        run: flutter build apk --debug --suppress-analytics
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          path: |
+            android/build/app/outputs/flutter-apk/app-debug.apk
+            build/app/outputs/flutter-apk/app-debug.apk
