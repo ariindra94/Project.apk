@@ -25,9 +25,7 @@ jobs:
           gradle-version: 8.5
 
       - name: Build APK
-        run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug -x checkDebugAarMetadata --no-daemon
+        run: gradle assembleDebug -x checkDebugAarMetadata
         working-directory: android
 
       - name: Upload APK Artifact
