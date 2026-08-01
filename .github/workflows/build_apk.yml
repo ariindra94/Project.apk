@@ -19,12 +19,11 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      # Gunakan Gradle Action langsung untuk mengeksekusi assembleDebug
       - name: Setup & Build with Gradle
         uses: gradle/gradle-build-action@v3
         with:
           build-root-directory: android
-          arguments: assembleDebug --stacktrace
+          arguments: assembleDebug --no-configuration-cache
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
