@@ -18,18 +18,17 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      # Kunci ke versi Flutter Stable yang paling kompatibel (3.19.6)
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.19.6'
           channel: 'stable'
 
-      # Re-generate folder android dengan template versi stabil
+      # Regenerate folder Android dengan memaksakan nama project valid (lowercase & tanpa titik)
       - name: Re-generate Android Project
         run: |
           rm -rf android
-          flutter create . --platforms=android --org=com.esp32.dashboard
+          flutter create . --project-name esp32_dashboard --platforms=android --org=com.esp32.dashboard
 
       - name: Get Dependencies
         run: flutter pub get
